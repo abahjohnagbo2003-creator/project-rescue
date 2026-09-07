@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ ministry.name }} | {{ ministry.tagline }}</title>
+  <meta name="description" content="A Christ-centered recovery and support ministry in Decatur, Alabama.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#home">PROJECT <span>RESCUE</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#recovery">Recovery</a>
+      <a href="#member">Member of the Week</a>
+      <a href="#meetings">Meetings</a>
+      <a class="nav-button" href="#contact">Get Help</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">DECATUR, ALABAMA • FAITH • RECOVERY • COMMUNITY</p>
+        <h1>You are not finished.<br><em>There is a new purpose.</em></h1>
+        <p class="lead">
+          Welcome to Project Rescue — a Christ-centered recovery ministry for people
+          who are ready to face addiction, destructive habits, and the pain behind them.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#contact">I Need Help</a>
+          <a class="button ghost" href="#meetings">View Recovery Schedule</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="cross">✝</div>
+        <h3>Grace meets us where we are.</h3>
+        <p>Recovery is a journey. You do not have to walk it alone.</p>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">WELCOME</p>
+        <h2>A safe place to begin again.</h2>
+      </div>
+      <div class="two-col">
+        <p>
+          Project Rescue is built around faith, accountability, community and a
+          practical path toward freedom from addiction. Whether you are struggling
+          with alcohol, drugs, dishonesty, or another destructive habit, the first
+          step can simply be asking for help.
+        </p>
+        <p>
+          We believe a person's worst chapter does not have to be the end of their
+          story. Our goal is to encourage spiritual growth while connecting people
+          with appropriate recovery and professional support when it is needed.
+        </p>
+      </div>
+    </section>
+
+    <section id="recovery" class="section dark">
+      <div class="section-heading">
+        <p class="eyebrow">RECOVERY</p>
+        <h2>Freedom starts with honesty.</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span>01</span>
+          <h3>Alcohol & Drug Recovery</h3>
+          <p>Support for people taking their first steps toward sobriety and a healthier life.</p>
+        </article>
+        <article class="card">
+          <span>02</span>
+          <h3>Honesty & Accountability</h3>
+          <p>Learn to replace destructive patterns with truth, responsibility and healthy relationships.</p>
+        </article>
+        <article class="card">
+          <span>03</span>
+          <h3>Faith & Purpose</h3>
+          <p>Build a life centered on faith, service, community and a meaningful future.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="member" class="section member-section">
+      <div class="member-photo-wrap">
+        <img src="{{ url_for('static', filename='sandra.jpg') }}" alt="Sandra Giggs, Member of the Week">
+      </div>
+      <div class="member-copy">
+        <p class="eyebrow">⭐ MEMBER OF THE WEEK</p>
+        <h2>Sandra Giggs</h2>
+        <p class="quote">
+          “I see a new purpose.”
+        </p>
+        <p>
+          Sandra describes growing up in a difficult home where she felt responsible
+          for caring for her younger siblings. She says she learned to lie to survive,
+          and eventually alcohol became part of her life too. Today, she is choosing
+          honesty, recovery and a different future.
+        </p>
+        <p class="note">
+          <strong>Her reminder:</strong> Your past can explain your pain without
+          deciding your future.
+        </p>
+      </div>
+    </section>
+
+    <section id="meetings" class="section schedule">
+      <div class="section-heading">
+        <p class="eyebrow">WEEKLY RHYTHM</p>
+        <h2>Come as you are.</h2>
+        <p>
+          The schedule below is based on publicly available Project Rescue information.
+          Confirm times before traveling because schedules can change.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div><strong>Monday–Friday</strong><span>8:00 AM — Meeting & Bible Class</span></div>
+        <div><strong>Monday–Friday</strong><span>6:30 PM — Bible Class</span></div>
+        <div><strong>Sunday</strong><span>Morning & evening church services</span></div>
+      </div>
+
+      <div class="local-help">
+        <h3>Additional recovery support in Decatur</h3>
+        <p>
+          Local directories also list AA, NA and Celebrate Recovery meetings in the
+          Decatur area. Meeting details can change, so verify the time and location
+          before attending.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div>
+        <p class="eyebrow">TAKE THE NEXT STEP</p>
+        <h2>You don't have to figure it out alone.</h2>
+        <p>If you are in immediate danger, call 911. For addiction recovery support, reach out to the ministry or a qualified treatment professional.</p>
+      </div>
+
+      <div class="contact-box">
+        <p><strong>Project Rescue</strong></p>
+        <p>{{ ministry.address }}</p>
+        <p><a href="tel:+12562743468">{{ ministry.phone }}</a></p>
+        <p><a href="mailto:{{ ministry.email }}">{{ ministry.email }}</a></p>
+      </div>
+    </section>
+
+    <section class="section prayer" id="prayer">
+      <div class="section-heading">
+        <p class="eyebrow">PRAYER</p>
+        <h2>Request prayer</h2>
+      </div>
+      <form action="{{ url_for('prayer') }}" method="post">
+        <label>Your name
+          <input name="name" required placeholder="First name">
+        </label>
+        <label>Your prayer request
+          <textarea name="request" rows="5" required placeholder="How can we pray for you?"></textarea>
+        </label>
+        <button class="button primary" type="submit">Send Prayer Request</button>
+      </form>
+      <p id="thank-you" class="small">
+        For this school-project version, the form does not save private requests.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>PROJECT RESCUE</strong>
+      <p>{{ ministry.tagline }}</p>
+    </div>
+    <div>Decatur, Alabama • Faith • Recovery • Hope</div>
+  </footer>
+</body>
+</html>
